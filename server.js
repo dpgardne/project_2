@@ -10,6 +10,10 @@ app.use(methodOverride('_method'));
 const usersController = require('./controllers/users.js')
 app.use('/users', usersController);
 
+//connect photos.js
+const photosController = require('./controllers/photos.js')
+app.use('/photos', photosController);
+
 //connect homepage route
 app.get('/', (req, res)=>{
   res.render('index.ejs');

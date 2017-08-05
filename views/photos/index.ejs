@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>photos home</title>
+
+  </head>
+  <body>
+    <h1>Photos Home</h1>
+    <div id="container">
+    <h2>Recently submitted photos</h2>
+
+				<% for(let i = 0; i < photos.length; i++){ %>
+
+          <div>
+						<h2><a href="/photos/<%=photos[i].id%>"><%=photos[i].name%></a></h2>
+            <img src="<%=photos[i].image%>" />
+            <p><%=photos[i].description%></p>
+					</div>
+				<% } %>
+      </div>
+  </body>
+</html>

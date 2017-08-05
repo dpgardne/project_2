@@ -41,4 +41,20 @@ router.delete('/:id', (req, res) => {
   })
 })
 
+//add edit router
+router.get('/:id/edit', (req,res)=> {
+  User.findById(req.params.id, (err, foundUsers) => {
+  res.render('users/edit.ejs', {
+  users: foundUsers
+        })
+    })
+})
+
+//create put route for edit form
+router.put('/:id', (req, res)=>{
+  User.findByIdAndUpdate(req.params.id, req.body, ()=>{
+  res.redirect('/users');
+  });
+});
+
 module.exports = router;
