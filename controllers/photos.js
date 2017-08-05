@@ -10,21 +10,21 @@ router.get('/', (req, res) => {
       });
   })
 })
-// //http://localhost:3000/users
-//
-// //connect route to users/new.ejs
-// router.get('/new', (req, res) => {
-//   res.render('users/new.ejs')
-// })
-// //http://localhost:3000/users/new
-//
-// //setup post route for form
-// router.post('/', (req, res) => {
-//   User.create(req.body, (err, CreatedUser)=> {
-//   res.redirect('/users')
-//   })
-// })
-//
+//http://localhost:3000/photos
+
+//connect route to users/new.ejs
+router.get('/new', (req, res) => {
+  res.render('photos/new.ejs')
+})
+//http://localhost:3000/users/new
+
+//setup post route for form
+router.post('/', (req, res) => {
+  Photo.create(req.body, (err, CreatedPhoto)=> {
+  res.redirect('/photos')
+  })
+})
+
 // //connect route to show.ejs
 // router.get('/:id', (req, res) => {
 //   User.findById(req.params.id, (err, foundUser) => {
