@@ -25,8 +25,13 @@ router.post('/', (req, res) => {
   })
 })
 
+//connect route to show.ejs
 router.get('/:id', (req, res) => {
-  res.send('show page')
+  User.findById(req.params.id, (err, foundUser) => {
+    res.render('users/show.ejs', {
+      users: foundUser
+      })
+    })
 })
 
 module.exports = router;
