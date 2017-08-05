@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>users home</title>
+  </head>
+  <body>
+    <h1>Users home</h1>
+    <h2>List of users</h2>
+    <h4><a href="/users/new">Create new user</a></h4>
+        <% for(let i = 0; i < users.length; i++){ %>
+
+
+            <a href="/users/<%=users[i].id%>">
+            <p><%=users[i].user%></p>
+            </a>
+
+        <% } %>
+  </body>
+</html>
