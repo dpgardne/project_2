@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended:false}))
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'));
 
 //connect users.js
 const usersController = require('./controllers/users.js')
