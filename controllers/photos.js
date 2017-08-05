@@ -25,22 +25,22 @@ router.post('/', (req, res) => {
   })
 })
 
-// //connect route to show.ejs
-// router.get('/:id', (req, res) => {
-//   User.findById(req.params.id, (err, foundUser) => {
-//     res.render('users/show.ejs', {
-//       users: foundUser
-//       })
-//     })
-// })
-//
-// //add delete route
-// router.delete('/:id', (req, res) => {
-//   User.findByIdAndRemove(req.params.id, (err, data) => {
-//     res.redirect('/users')
-//   })
-// })
-//
+//connect route to show.ejs
+router.get('/:id', (req, res) => {
+  Photo.findById(req.params.id, (err, foundPhoto) => {
+    res.render('photos/show.ejs', {
+      photos: foundPhoto
+      })
+    })
+})
+
+//add delete route
+router.delete('/:id', (req, res) => {
+  Photo.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect('/photos')
+  })
+})
+
 // //add edit router
 // router.get('/:id/edit', (req,res)=> {
 //   User.findById(req.params.id, (err, foundUsers) => {

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>photo edit</title>
+
+  </head>
+  <body>
+    <h1> User photo </h1>
+
+    <nav>
+				<ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/photos">Photo index</a>
+					</li>
+				</ul>
+			</nav>
+
+      <div>
+        <h2><%=photos.name%></h2>
+        <img src="<%=photos.image%>" />
+        <p><%=photos.description%></p>
+      </div>
+      <br />
+      <br />
+      <form action="/photos/<%=photos.id%>?_method=DELETE" method="POST">
+              <input type="submit" value="delete this photo">
+            </form>
+
+            <a href="/photos/<%=photos.id%>/edit">Edit this photo</a>
+
+  </body>
+</html>
