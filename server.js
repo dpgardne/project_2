@@ -6,6 +6,8 @@ app.use(bodyParser.urlencoded({extended:false}))
 const methodOverride = require('method-override')
 app.use(methodOverride('_method'));
 
+app.use( express.static ( 'public' ) );
+
 //connect users.js
 const usersController = require('./controllers/users.js')
 app.use('/users', usersController);
