@@ -51,7 +51,7 @@ router.post('/', (req, res)=>{
 //edit route
 router.get('/:id', (req, res) => {
   Photo.findById(req.params.id, (err, foundPhoto) => {
-  User.findOne({ 'users._id' : req.params.id}, (err, foundUser) => {
+  User.findOne({ 'photos._id' : req.params.id}, (err, foundUser) => {
     res.render('photos/show.ejs', {
       photos: foundPhoto,
       users: foundUser
