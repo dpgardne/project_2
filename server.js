@@ -22,11 +22,18 @@ app.get('/', (req, res)=>{
   });
 
   //setup new mongo db
-  mongoose.connect('mongodb://localhost:27017/cityview');
+  // mongoose.connect('mongodb://localhost:27017/cityview');
+
+  const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/cityview';
+  mongoose.connect(mongoUri);
+
   mongoose.connection.once('open', ()=> {
     console.log('connect to mongo')
   })
 
-app.listen(3000, () => {
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
   console.log('listening..')
 })
