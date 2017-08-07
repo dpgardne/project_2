@@ -71,13 +71,6 @@ router.get('/:id', (req, res) => {
 
 
 //add delete route
-
-// router.delete('/:id', (req, res) => {
-//   Photo.findByIdAndRemove(req.params.id, (err, data) => {
-//     res.redirect('/photos')
-//   })
-// })
-
 router.delete('/:id', (req, res)=>{
       Photo.findByIdAndRemove(req.params.id, ()=> {
       User.findOne({ 'photos._id': req.params.id}, (err, foundUser)=> {
@@ -88,6 +81,11 @@ router.delete('/:id', (req, res)=>{
         })
       })
     });
+// router.delete('/:id', (req, res) => {
+//   Photo.findByIdAndRemove(req.params.id, (err, data) => {
+//     res.redirect('/photos')
+//   })
+// })
 
 
 //add edit route
@@ -100,11 +98,25 @@ router.get('/:id/edit', (req,res)=> {
 })
 
 //create put route for edit form
+//edit router to update list
+
 router.put('/:id', (req, res)=>{
-  Photo.findByIdAndUpdate(req.params.id, req.body, ()=>{
-  res.redirect('/photos');
-  });
+    Photo.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPhoto)=>{
+        User.findOne({ 'photos._id' : req.params.id }, (err, foundUser)=>{
+            foundUser.photos.id(req.params.id).remove();
+            foundUser.photos.push(updatedPhoto);
+            foundUser.save((err, data)=>{
+                res.redirect('/photos/'+req.params.id);
+            });
+        });
+    });
 });
+
+// router.put('/:id', (req, res)=>{
+//   Photo.findByIdAndUpdate(req.params.id, req.body, ()=>{
+//   res.redirect('/photos');
+//   });
+// });
 
 
 module.exports = router;
