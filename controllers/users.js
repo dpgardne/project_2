@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/users')
+//require photo model
+const Photo = require('../models/photos.js')
 
 //connect route to users/index.ejs
 router.get('/', (req, res) => {
@@ -35,11 +37,30 @@ router.get('/:id', (req, res) => {
 })
 
 //add delete route
-router.delete('/:id', (req, res) => {
-  User.findByIdAndRemove(req.params.id, (err, data) => {
-    res.redirect('/users')
-  })
-})
+//edit delete route
+router.delete('/:id', (req, res)=>{
+	User.findByIdAndRemove(req.params.id, (err, foundUser)=>{
+		const photoIds = [];
+		for (let i = 0; i < foundUser.photos.length; i++) {
+			photoIds.push(foundUser.photos[i]._id);
+		}
+		Photo.remove(
+			{
+				_id : {
+					$in: photoIds
+				}
+			},
+			(err, data)=>{
+				res.redirect('/users');
+			});
+	});
+});
+
+// router.delete('/:id', (req, res) => {
+//   User.findByIdAndRemove(req.params.id, (err, data) => {
+//     res.redirect('/users')
+//   })
+// })
 
 //add edit router
 router.get('/:id/edit', (req,res)=> {
