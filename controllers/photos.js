@@ -71,11 +71,24 @@ router.get('/:id', (req, res) => {
 
 
 //add delete route
-router.delete('/:id', (req, res) => {
-  Photo.findByIdAndRemove(req.params.id, (err, data) => {
-    res.redirect('/photos')
-  })
-})
+
+// router.delete('/:id', (req, res) => {
+//   Photo.findByIdAndRemove(req.params.id, (err, data) => {
+//     res.redirect('/photos')
+//   })
+// })
+
+router.delete('/:id', (req, res)=>{
+      Photo.findByIdAndRemove(req.params.id, ()=> {
+      User.findOne({ 'photos._id': req.params.id}, (err, foundUser)=> {
+        foundUser.photos.id(req.params.id).remove()
+        foundUser.save((err, savedUser) => {
+            res.redirect('/photos')
+        })
+        })
+      })
+    });
+
 
 //add edit route
 router.get('/:id/edit', (req,res)=> {
