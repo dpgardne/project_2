@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Photo = require('../models/photos')
+//require users model
+const User = require('../models/users.js')
 
 //connect route to users/index.ejs
 router.get('/', (req, res) => {
@@ -13,8 +15,14 @@ router.get('/', (req, res) => {
 //http://localhost:3000/photos
 
 //connect route to users/new.ejs
+//edit get route 
 router.get('/new', (req, res) => {
-  res.render('photos/new.ejs')
+  User.find({}, (err, allUsers) => {
+  res.render('photos/new.ejs', {
+    users: allUsers
+    //users is what we will use in views/photos/new.ejs
+  })
+})
 })
 //http://localhost:3000/users/new
 
