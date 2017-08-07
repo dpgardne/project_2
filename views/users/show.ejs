@@ -20,6 +20,20 @@
 			</nav>
 
       <div>
+
+        <section>
+        <h2>Photos posted by this user</h2>
+            <ul>
+              <% for(let i =0; i < users.photos.length; i++) {%>
+                  <li>
+                  <a href="/photos/<%=users.photos[i].id%>">
+                  <%=users.photos[i].name%>
+                  </a>
+                  </li>
+              <%}%>
+            </ul>
+      </section>
+
         <h2>user: <%=users.user%></h2>
         <h2>password: <%=users.password%></h2>
 

@@ -21,7 +21,7 @@
 		</header>
 		<main>
 			<form action="/photos" method="post">
-				<select name="authorId">
+				<select name="userId">
             					<% for(let i = 0; i < users.length; i++ ) {%>
             							<option value="<%=users[i].id%>"><%=users[i].user%></option>
             					<%}%>
