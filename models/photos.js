@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const photoSchema = mongoose.Schema({
   name: String,
   image: String,
+  address: String,
   description: String
 })
 
