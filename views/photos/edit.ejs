@@ -3,15 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>edit photo</title>
-
+    <% include ../partials/head.ejs %>
   </head>
   <body>
-    <h1> Edit photo </h1>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <a class="navbar-brand" href="/">Home</a>
+          <a class="navbar-brand" href="/photos">Explore</a>
+          <a class="navbar-brand" href="/users">Users</a>
+          <a class="navbar-brand" href="/photos/new">Post new issue</a>
+          <a class="navbar-brand" href="#">Contact</a>
+          <button class=" this_btn btn btn-default" type="button" aria-haspopup="true" aria-expanded="false">
+          <a href="../users/new" role="button">Sign in </a>
+          </button>
+      </div>
+    </nav>
+    <div class="container">
+    <h1 class="jumbo_header"> Edit photo </h1>
     <form action="/photos/<%=photos._id%>?_method=PUT" method="post">
-      Title: <input type="text" name="name" /> <br /> <br />
-      Photo: <input type="text" name="image" /> <br /> <br />
-      Address: <input type="text" name="address" /> <br /> <br />
-      Description: <input type="text" name="description" /> <br /> <br />
-      <input type="submit" value="publish photo"/>
+      Title: <input type="text" name="name" class="form-control nav_brand" placeholder="title"  /> <br /> <br />
+      Photo: <input type="text" name="image" class="form-control nav_brand" placeholder="link to image"  /> <br /> <br />
+      Address: <input type="text" name="address" class="form-control nav_brand" placeholder="Address"  /> <br /> <br />
+      Description: <input type="text" name="description" class="form-control nav_brand" placeholder="Description" /> <br /> <br />
+      <input class="btn btn-primary" type="submit" value="publish photo"/>
+          </div>
   </body>
 </html>
