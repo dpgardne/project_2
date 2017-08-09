@@ -57,7 +57,11 @@ div.container_home {
 
 .jumbo_descript {
   font-family: 'Merriweather', sans-serif;
-  font-size: 14px;
+  font-size: 18px;
+}
+
+.description_span {
+  font-weight: bold;
 }
 
 .active_users {
