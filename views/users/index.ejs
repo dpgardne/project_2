@@ -10,29 +10,26 @@
       <div class="container">
           <a class="navbar-brand" href="/">Home</a>
           <a class="navbar-brand" href="/photos">Explore</a>
-          <a class="navbar-brand" href="/users/new">Post new issue</a>
+          <a class="navbar-brand" href="/photos/new">Post new issue</a>
           <a class="navbar-brand" href="#">Contact</a>
           <button class=" this_btn btn btn-default" type="button" aria-haspopup="true" aria-expanded="false">
-  <a href="/users/new" role="button">Sign in </a>
-  </button>
+          <a href="/users/new" role="button">Sign in </a>
+          </button>
       </div>
     </nav>
-
     <div class="jumbotron">
-  <h1>Start improving your city</h1>
-  <p>CityViewer empowers you to make your city more safe and accessible by contributing tagged photos that show areas public areas needing improvement. Whether it's a downed stop sign, pothole, debris, you can make a difference and make your city more livable.</p>
+  <h1 class="jumbo_header">Start improving your city</h1>
+  <p class="jumbo_descript">CityViewer empowers you to make your city more safe and accessible by contributing tagged photos that show areas public areas needing improvement. Whether it's a downed stop sign, pothole, debris, you can make a difference and make your city more livable.</p>
   <p><a class="btn btn-primary btn-lg" href="/users/new" role="button">Get started</a></p>
 </div>
 
+<div class="active_users">
     <h2>Active users in your city</h2>
-
         <% for(let i = 0; i < users.length; i++){ %>
-
-
             <a href="/users/<%=users[i].id%>">
             <p><%=users[i].user%></p>
             </a>
-
         <% } %>
+        </div>
   </body>
 </html>
