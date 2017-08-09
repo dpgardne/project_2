@@ -27,5 +27,6 @@ div.container {
 
 .jumbotron {
   background-color: #ECF0F1;
-  color: #2C3E50
+  color: #2C3E50;
+  padding: 20px;
 }
