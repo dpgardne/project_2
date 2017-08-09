@@ -1,4 +1,31 @@
 body {
   background-color: white;
   color: black;
+  padding-top: 70px;
+}
+
+.navbar {
+  background-color: #3498DB;
+
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+    padding-left: 0px;
+    padding-right: 45px;
+    margin: 0px;
+}
+
+div.container {
+  padding-left: 0px;
+  margin: 15px 0px 15px 40px;
+}
+
+.this_btn {
+  margin-left: 0px;
+}
+
+.jumbotron {
+  background-color: #ECF0F1;
+  color: #2C3E50
 }
