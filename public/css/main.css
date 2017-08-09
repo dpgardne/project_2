@@ -21,6 +21,11 @@ div.container {
   margin: 15px 0px 15px 40px;
 }
 
+.container_photos {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
 .this_btn {
   margin-left: 0px;
 }
