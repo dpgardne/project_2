@@ -8,17 +8,12 @@
       width: 400px;;
       height: 400px;
       background-color: grey;
+      margin: 20px;
     }
 
-    html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+
   #floating-panel {
-    position: absolute;
-    top: 10px;
-    left: 25%;
+
     z-index: 5;
     background-color: #fff;
     padding: 5px;
@@ -30,7 +25,7 @@
   }
 </style>
   </head>
-  <body>
+  <body onload="initialize()">
     <h1> User photo </h1>
 
     <h1><%=photos.name%></h1>
@@ -56,12 +51,12 @@
           <p><%=photos.address%></p>
         <p><%=photos.description%></p>
 
-
         <div id="floating-panel">
             <input id="address" type="textbox" value="<%=photos.address%>">
             <input id="submit" type="button" value="Geocode">
           </div>
-          <div id="map"></div>
+
+          <div id="map">
           <script>
             function initMap() {
               var map = new google.maps.Map(document.getElementById('map'), {
@@ -95,7 +90,7 @@
     </script>
 
 
-
+  </div>
       </div>
       <br />
       <br />
