@@ -2,10 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
-
+    <title>User account information</title>
+    <% include ../partials/head.ejs %>
   </head>
   <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <a class="navbar-brand" href="/">Home</a>
+          <a class="navbar-brand" href="/photos">Explore</a>
+          <a class="navbar-brand" href="/users">Users</a>
+          <a class="navbar-brand" href="/photos/new">Post new issue</a>
+          <a class="navbar-brand" href="#">Contact</a>
+          <button class=" this_btn btn btn-default" type="button" aria-haspopup="true" aria-expanded="false">
+          <a href="../users/new" role="button">Sign in </a>
+          </button>
+      </div>
+    </nav>
     <h1> User information </h1>
 
     <nav>

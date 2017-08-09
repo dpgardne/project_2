@@ -23,37 +23,41 @@
     line-height: 30px;
     padding-left: 10px;
   }
+
+  img {
+    width: 100%;
+  }
 </style>
+<% include ../partials/head.ejs %>
   </head>
   <body onload="initialize()">
-    <h1> User photo </h1>
-
-    <h1><%=photos.name%></h1>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <a class="navbar-brand" href="/">Home</a>
+          <a class="navbar-brand" href="/photos">Explore</a>
+          <a class="navbar-brand" href="/users">Users</a>
+          <a class="navbar-brand" href="/photos/new">Post new issue</a>
+          <a class="navbar-brand" href="#">Contact</a>
+          <button class=" this_btn btn btn-default" type="button" aria-haspopup="true" aria-expanded="false">
+          <a href="/users/new" role="button">Sign in </a>
+          </button>
+      </div>
+    </nav>
+    <div class="active_users">
+    <h1 class="jumbo_header"><%=photos.name%></h1>
 			<small>
 				by:
           <a href="/users/<%=users._id%>"><%=users.user%></a>
       </small>
-
-    <nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/photos">Photo index</a>
-					</li>
-				</ul>
-			</nav>
-
       <div>
-        <h2><%=photos.name%></h2>
-        <img src="<%=photos.image%>" />
-          <p><%=photos.address%></p>
-        <p><%=photos.description%></p>
 
+        <img src="<%=photos.image%>" />
+          <p>Adress: <%=photos.address%></p>
+        <p><%=photos.description%></p>
+    </div>
         <div id="floating-panel">
             <input id="address" type="textbox" value="<%=photos.address%>">
-            <input id="submit" type="button" value="Geocode">
+            <input class="btn btn-primary" id="submit" type="button" value="Geocode">
           </div>
 
           <div id="map">
@@ -94,11 +98,14 @@
       </div>
       <br />
       <br />
+      <div class="container">
       <form action="/photos/<%=photos.id%>?_method=DELETE" method="POST">
-              <input type="submit" value="delete this photo">
+              <input  class="btn btn-primary" type="submit" value="Delete this photo">
             </form>
 
-            <a href="/photos/<%=photos.id%>/edit">Edit this photo</a>
+            <a href="/photos/<%=photos.id%>/edit" class="btn btn-default btn_edit">Edit this photo</a>
+
+          </div>
 
   </body>
 </html>
