@@ -3,14 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>edit users</title>
+    <% include ../partials/head.ejs %>
   </head>
   <body>
-    <h1> Edit user </h1>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <a class="navbar-brand" href="/">Home</a>
+          <a class="navbar-brand" href="/photos">Explore</a>
+          <a class="navbar-brand" href="/users">Users</a>
+          <a class="navbar-brand" href="/photos/new">Post new issue</a>
+          <a class="navbar-brand" href="#">Contact</a>
+          <button class=" this_btn btn btn-default" type="button" aria-haspopup="true" aria-expanded="false">
+          <a href="/users/new" role="button">Sign in </a>
+          </button>
+      </div>
+    </nav>
+    <div class="container">
+    <h1 class="jumbo_header"> Edit user </h1>
 
     <form action="/users/<%=users._id%>?_method=PUT" method="post">
-    user: <input type="text" name="user" /> <br /> <br />
-    password: <input type="text" name="password" /> <br /> <br />
-    <input type="submit" value="edit user"/>
+    user: <input type="text" name="user"  class="form-control nav_brand" placeholder="username"  /> <br /> <br />
+    password: <input type="text" name="password"  class="form-control nav_brand" placeholder="password" /> <br /> <br />
+    <input type="submit" value="edit user" class="btn btn-primary"/>
   </form>
+</div>
   </body>
 </html>

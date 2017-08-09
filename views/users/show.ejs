@@ -18,23 +18,10 @@
           </button>
       </div>
     </nav>
-    <h1> User information </h1>
-
-    <nav>
-				<ul>
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/users">User index</a>
-					</li>
-				</ul>
-			</nav>
-
-      <div>
-
+      <div class="container">
+          <h1 class="jumbo_header"> User information </h1>
         <section>
-        <h2>Photos posted by this user</h2>
+        <h4>Photos posted by this user</h4>
             <ul>
               <% for(let i =0; i < users.photos.length; i++) {%>
                   <li>
@@ -46,14 +33,14 @@
             </ul>
       </section>
 
-        <h2>user: <%=users.user%></h2>
-        <h2>password: <%=users.password%></h2>
+        <h2 class="jumbo_descript">username: <%=users.user%></h2>
+        <h2 class="jumbo_descript">password: <%=users.password%></h2>
 
         <form action="/users/<%=users.id%>?_method=DELETE" method="POST">
-          <input type="submit" value="delete this user">
+          <input class="btn btn-primary" type="submit" value="delete this user">
         </form>
 
-            <a href="/users/<%=users.id%>/edit">Edit this user</a>
+            <a href="/users/<%=users.id%>/edit" class="btn btn-default btn_edit">Edit this user</a>
 
       </div>
       <br />
