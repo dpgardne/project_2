@@ -18,6 +18,6 @@ CityViewer empowers you to make your city more safe and accessible by contributi
 - Hosted on Heroku
 
 ## Stretch goals
--Add Google maps api
--Add bootstrap integration
--Add voting
+- Add Google maps api
+- Add bootstrap integration
+- Add voting
