@@ -69,6 +69,11 @@ div.container_home {
   max-width: 400px;
 }
 
+.users_div {
+  display: inline;
+  padding: 14px;
+}
+
 .active_users {
   font-family: 'Raleway', sans-serif;
   font-size: 24px;

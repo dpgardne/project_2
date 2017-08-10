@@ -26,13 +26,13 @@
 
 <div class="active_users">
     <h2>Active users in your city</h2>
-      <table class="table">
+
         <% for(let i = 0; i < users.length; i++){ %>
-            <td>
+            <div class="users_div">
             <a href="/users/<%=users[i].id%>">
             <%=users[i].user%>
             </a>
-            </td>
+            </div>
         <% } %>
         </div>
       </table>
