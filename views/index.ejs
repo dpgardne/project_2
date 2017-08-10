@@ -14,7 +14,7 @@
           <a class="navbar-brand" href="/photos/new">Post new issue</a>
           <a class="navbar-brand" href="#">Contact</a>
           <button class=" this_btn btn btn-default" type="button" aria-haspopup="true" aria-expanded="false">
-          <a href="/users/new" role="button">Sign in </a>
+          <a href="/sessions/new" role="button">Sign in </a>
           </button>
       </div>
     </nav>
@@ -23,6 +23,27 @@
       <p>Welcome to CityViewer, a web-based application designed to keep your city livable.</p>
       <a href="/photos" class="btn btn-primary btn_edit">Browse</a>
       <a href="/users/new" class="btn btn-primary btn_edit">Create account</a>
+
+      <h1>
+    <% if(currentUser) { %>
+        <p class="jumbo_descript">Welcome <%=currentUser.user%>!</p>
+    <% } else { %>
+
+    <% } %>
+</h1>
+
+<% if(currentUser) { %>
+
+        <form action="/sessions?_method=DELETE" method="POST">
+            <input class="btn btn-primary" type="submit" value="Logout"/>
+        </form>
+
+<% } %>
+
+
+
+
+
     </div>
   </body>
 </html>

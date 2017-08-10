@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/users')
+//require bcrypt
+const bcrypt = require('bcrypt');
 //require photo model
 const Photo = require('../models/photos.js')
 
@@ -21,11 +23,19 @@ router.get('/new', (req, res) => {
 //http://localhost:3000/users/new
 
 //setup post route for form
-router.post('/', (req, res) => {
-  User.create(req.body, (err, CreatedUser)=> {
-  res.redirect('/users')
-  })
-})
+// router.post('/', (req, res) => {
+//   User.create(req.body, (err, CreatedUser)=> {
+//   res.redirect('/users')
+//   })
+// })
+
+//bcrypt
+router.post('/', function(req, res){
+    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+    User.create(req.body, function(err, createdUser){
+        res.redirect('/users');
+    });
+});
 
 //connect route to show.ejs
 router.get('/:id', (req, res) => {
@@ -77,5 +87,7 @@ router.put('/:id', (req, res)=>{
   res.redirect('/users');
   });
 });
+
+
 
 module.exports = router;
